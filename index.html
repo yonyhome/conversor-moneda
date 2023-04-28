@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title >Currency Converter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="source/js/script.js"></script>
+  
+  <script src="https://kit.fontawesome.com/5a1b58b9ee.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
+</head>
+<body class="bg-black" >
+	<nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
+		<div class="flex items-center flex-shrink-0 text-white">
+		  <img class="h-20 w-20 mr-2" src="source/img/logo.png" alt="Logo">
+		  <span class="font-semibold text-xl tracking-tight">Convertidor de Moneda $</span>
+		</div>
+	</nav>
+	
+	<div class="bg-black bg-opacity-50 flex justify-center items-center p-8">
+		<div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
+			<form class="max-w-lg mx-auto mt-8  ">
+				<h1 class="text-4xl font-bold  mx-auto text-center">Conversor de Moneda</h1>
+				<div class="flex flex-col p-4">
+				  <label class = "p-1" for="from_currency">Moneda Origen:</label>
+				  <div id="flag-div"></div>
+
+				  <select  class = "p-1" id="from_currency_type" name="from_currency_type" onchange="showFlag()">
+					<option value="AUD" id="AUD">AUD - Australian Dollar</option>
+					<option value="BRL" id="BRL">BRL - Brazilian Real</option>
+					<option value="CAD" id="CAD">CAD - Canadian Dollar</option>
+					<option value="CHF" id="CHF">CHF - Swiss Franc</option>
+					<option value="CNY" id="CNY">CNY - Chinese Yuan Renminbi</option>
+					<option value="COP" id="COP">COP - Colombian Peso</option>
+					<option value="CZK" id="CZK">CZK - Czech Koruna</option>
+					<option value="DKK" id="DKK">DKK - Danish Krone</option>
+					<option value="EGP" id="EGP">EGP - Egyptian Pound</option>
+					<option value="EUR" id="EUR">EUR - Euro</option>
+					<option value="GBP" id="GBP">GBP - British Pound Sterling</option>
+					<option value="HKD" id="HKD">HKD - Hong Kong Dollar</option>
+					<option value="HUF" id="HUF">HUF - Hungarian Forint</option>
+					<option value="IDR" id="IDR">IDR - Indonesian Rupiah</option>
+					<option value="ILS" id="ILS">ILS - Israeli Shekel</option>
+					<option value="INR" id="INR">INR - Indian Rupee</option>
+					<option value="JPY" id="JPY">JPY - Japanese Yen</option>
+					<option value="KRW" id="KRW">KRW - South Korean Won</option>
+					<option value="MXN" id="MXN">MXN - Mexican Peso</option>
+					<option value="MYR" id="MYR">MYR - Malaysian Ringgit</option>
+					<option value="NOK" id="NOK">NOK - Norwegian Krone</option>
+					<option value="NZD" id="NZD">NZD - New Zealand Dollar</option>
+					<option value="PHP" id="PHP">PHP - Philippine Peso</option>
+					<option value="PLN" id="PLN">PLN - Polish Zloty</option>
+					<option value="RON" id="RON">RON - Romanian Leu</option>
+					<option value="RUB" id="RUB">RUB - Russian Ruble</option>
+					<option value="SEK" id="SEK">SEK - Swedish Krona</option>
+					<option value="SGD" id="SGD">SGD - Singapore Dollar</option>
+					<option value="THB" id="THB">THB - Thai Baht</option>
+					<option value="TRY" id="TRY">TRY - Turkish Lira</option>
+								
+				  </select>
+				  <input class = "p-1" type="number" id="from_currency" name="from_currency" required>
+				  
+				</div>
+				  
+				<div class="flex flex-col p-4">
+				  <label for="to_currency">Moneda Destino:</label>
+				  <div id="flag-div2"></div>
+
+				  <select class = "p-1" id="to_currency_type" name="to_currency_type" onchange="showFlag2()">
+						<option value="AUD" id="AUD">AUD - Australian Dollar</option>
+						<option value="BRL" id="BRL">BRL - Brazilian Real</option>
+						<option value="CAD" id="CAD">CAD - Canadian Dollar</option>
+						<option value="CHF" id="CHF">CHF - Swiss Franc</option>
+						<option value="CNY" id="CNY">CNY - Chinese Yuan Renminbi</option>
+						<option value="COP" id="COP">COP - Colombian Peso</option>
+						<option value="CZK" id="CZK">CZK - Czech Koruna</option>
+						<option value="DKK" id="DKK">DKK - Danish Krone</option>
+						<option value="EGP" id="EGP">EGP - Egyptian Pound</option>
+						<option value="EUR" id="EUR">EUR - Euro</option>
+						<option value="GBP" id="GBP">GBP - British Pound Sterling</option>
+						<option value="HKD" id="HKD">HKD - Hong Kong Dollar</option>
+						<option value="HUF" id="HUF">HUF - Hungarian Forint</option>
+						<option value="IDR" id="IDR">IDR - Indonesian Rupiah</option>
+						<option value="ILS" id="ILS">ILS - Israeli Shekel</option>
+						<option value="INR" id="INR">INR - Indian Rupee</option>
+						<option value="JPY" id="JPY">JPY - Japanese Yen</option>
+						<option value="KRW" id="KRW">KRW - South Korean Won</option>
+						<option value="MXN" id="MXN">MXN - Mexican Peso</option>
+						<option value="MYR" id="MYR">MYR - Malaysian Ringgit</option>
+						<option value="NOK" id="NOK">NOK - Norwegian Krone</option>
+						<option value="NZD" id="NZD">NZD - New Zealand Dollar</option>
+						<option value="PHP" id="PHP">PHP - Philippine Peso</option>
+						<option value="PLN" id="PLN">PLN - Polish Zloty</option>
+						<option value="RON" id="RON">RON - Romanian Leu</option>
+						<option value="RUB" id="RUB">RUB - Russian Ruble</option>
+						<option value="SEK" id="SEK">SEK - Swedish Krona</option>
+						<option value="SGD" id="SGD">SGD - Singapore Dollar</option>
+						<option value="THB" id="THB">THB - Thai Baht</option>
+						<option value="TRY" id="TRY">TRY - Turkish Lira</option>
+					</select>
+						<input class = "p-1" type="number" id="to_currency" name="to_currency" readonly>
+						
+						<button class="bg-blue-500 text-white px-4 p-2 rounded my-8" type="button" onclick="convertCurrency()">Convert</button>
+				</div>
+					
+			</form>
+		</div>
+	</div>
+
+	
+	<div class="bg-black bg-opacity-50 flex justify-center items-center p-8">
+		<div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
+			<div class="max-w-lg mx-auto mt-8">
+				<h2 class="text-4xl font-bold  mx-auto text-center">Taza de cambio</h2>
+				<table class="mx-auto text-center bg-white p-6  w-64 border-collapse border border-gray-400">
+					<thead class="bg-blue-500 text-white">
+						<tr>
+							<th class="px-4 py-2">Moneda</th>
+							<th class="px-4 py-2">Valor en USD</th>
+						</tr>
+					</thead>
+					<tbody id="exchange_rates">
+					</tbody>
+				</table>
+			</div>
+		
+		</div>
+	</div>
+	
+	<div class="bg-black bg-opacity-50 flex justify-center items-center p-8">
+		<div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full overflow-x-scroll">
+		  <div class="max-w-full">
+			<h2 class="text-4xl font-bold mx-auto text-center">Historico</h2>
+			<table class="mx-auto text-center bg-white p-6 border-collapse border border-gray-400">
+			  <thead class="bg-blue-500 text-white">
+				<tr>
+				  <th class="px-4 py-2">De</th>
+				  <th class="px-4 py-2">A</th>
+				  <th class="px-4 py-2">Cantidad</th>
+				  <th class="px-4 py-2">Total</th>
+				  <th class="px-4 py-2">Fecha</th>
+				</tr>
+			  </thead>
+			  <tbody class="divide-y divide-gray-200" id="conversion_history_table_body">
+			  </tbody>
+			</table>
+			<button class="bg-blue-500 text-white px-4 p-2  rounded my-8" type="button" onclick="confirmClearHistory()">Borrar Historico</button>
+
+		  </div>
+		</div>
+	  </div>
+	  
+	
+	
+</body>
+</html>
+
