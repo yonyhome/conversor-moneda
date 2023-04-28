@@ -145,6 +145,9 @@ fetch("https://api.exchangerate-api.com/v4/latest/USD")
 		flagDiv.innerHTML = "";
 		flagDiv.appendChild(img);
 	  }
+	  function actualizar(){
+		location.reload(true);
+	}
 	function clearHistory() {
 		// Borrar el historial de conversiones del Local Storage
 		localStorage.removeItem("conversions");
